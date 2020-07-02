@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE mycat:schema SYSTEM "schema.dtd">
 <mycat:schema xmlns:mycat="http://io.mycat/">
-        <schema name="{{ SCHEMANAME }}" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn1,dn2,dn3" rule="crc32slot" />
+        <schema name="{{ SCHEMANAME }}" checkSQLschema="false" sqlMaxLimit="100">
+                <table name="test" dataNode="dn1,dn2,dn3" rule="crc32slot" />
+        </schema>
         <dataNode name="dn1" dataHost="myhost" database="db1" />
         <dataNode name="dn2" dataHost="myhost" database="db2" />
         <dataNode name="dn3" dataHost="myhost" database="db3" />
