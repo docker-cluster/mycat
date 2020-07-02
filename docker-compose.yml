@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mycat:
+    build: ./
+    container_name: mycat
+    volumes:
+        - ./conf/schema.xml:/mycat/conf/schema.xml:ro
+        - ./conf/server.xml:/mycat/conf/server.xml:ro
+        - ./logs/:/mycat/logs/:rw
+        - ./localtime:/etc/localtime:ro
+        - ./timezone:/etc/timezone:ro
+    ports:
+        - "38066:8066"
+        - "39066:9066"
+    networks:
+        - overlay
+    ulimits:
+        nproc: 65535
+    mem_limit: 512m
+    restart: always
+
+networks:
+  overlay:
+    external:
+      name: mysql-cluster_overlay
+      
