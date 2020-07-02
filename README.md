@@ -30,6 +30,44 @@ chmod +x setup.sh
 
 ## 测试
 
-``` bash
+step1: 通过客户端新建数据库连接到ip:38066，然后创建test表并插入10条数据。
 
+``` sql
+use ego;
+
+create table test{
+  id int(10) primary key auto_increment,
+  name varchar(20)
+};
+
+insert into test(name) values('a');
+insert into test(name) values('b');
+insert into test(name) values('c');
+insert into test(name) values('d');
+insert into test(name) values('e');
+insert into test(name) values('f');
+insert into test(name) values('g');
+insert into test(name) values('h');
+insert into test(name) values('i');
+
+select * from test;
+
+```
+
+step2: 在从库中查询datanode
+
+``` sql
+use db1;
+select * from test;
+use db2;
+select * from test;
+use db3;
+select * from test;
+```
+
+step3: 清理
+
+``` sql
+use ego;
+drop table test;
 ```
