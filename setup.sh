@@ -33,49 +33,6 @@ docker-compose down
 docker-compose up -d
 echo "***************************mycat containers inited***************************"
 
-
-echo "***************************start to test mycat***************************"
-init_table_stmt="
-use ego;
-
-create table test{
-  id int(10) primary key auto_increment,
-  name varchar(20)
-};
-
-insert into test(name) values('a');
-insert into test(name) values('b');
-insert into test(name) values('c');
-insert into test(name) values('d');
-insert into test(name) values('e');
-insert into test(name) values('f');
-insert into test(name) values('g');
-insert into test(name) values('h');
-insert into test(name) values('i');
-
-select * from test;
-"
-
-check_table_stmt="
-use db1;
-select * from test;
-use db2;
-select * from test;
-use db3;
-select * from test;
-"
-
-drop_table_stmt="
-use ego;
-drop table test;
-"
-
-docker exec $mycat_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -P8066 -e '$init_table_stmt'"
-docker exec $slave_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -e '$check_table_stmt'"
-docker exec $mycat_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -P8066 -e '$drop_table_stmt'"
-echo "***************************mycat tested***************************"
-
-
 echo "success"
 
 exit 0
