@@ -34,21 +34,14 @@ step1: 通过客户端新建数据库连接到ip:38066，然后创建test表并�
 
 ``` sql
 use ego;
-
+drop table test;
 create table test(
-  id int(10) primary key auto_increment,
-  name varchar(20)
+  id int(10) primary key,
+  name varchar(20),
+  starttime timestamp default now()
 );
 
-insert into test(name) values('a');
-insert into test(name) values('b');
-insert into test(name) values('c');
-insert into test(name) values('d');
-insert into test(name) values('e');
-insert into test(name) values('f');
-insert into test(name) values('g');
-insert into test(name) values('h');
-insert into test(name) values('i');
+insert into TEST(id,name) values(1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e'),(6,'f'),(7,'g'),(8,'h'),(9,'i'),(10,'j');
 
 select * from test;
 

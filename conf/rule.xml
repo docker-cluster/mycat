@@ -80,6 +80,19 @@
                 </rule>
         </tableRule>
 
+        <tableRule name="desc-mod-long">
+                <rule>
+                        <columns>item_id</columns>
+                        <algorithm>mod-long</algorithm>
+                </rule>
+        </tableRule>
+        <tableRule name="order-mod-long">
+                <rule>
+                        <columns>order_id</columns>
+                        <algorithm>mod-long</algorithm>
+                </rule>
+        </tableRule>
+
         <tableRule name="jch">
                 <rule>
                         <columns>id</columns>

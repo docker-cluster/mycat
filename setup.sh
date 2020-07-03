@@ -12,7 +12,7 @@ local_ip=`host $local_host 2>/dev/null | awk '{print $NF}'`
 echo -e "\033[34mthree datanodes in one host.\033[0m"
 
 echo "***************************start to init datanodes***************************"
-for F in {1..3} ;do docker exec $master_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -e 'drop database db$F;'"; done
+#for F in {1..3} ;do docker exec $master_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -e 'drop database db$F;'"; done
 for F in {1..3} ;do docker exec $master_container sh -c "export MYSQL_PWD='$root_password';mysql -u root -e 'create database db$F;'"; done
 docker exec $slave_container sh -c 'export MYSQL_PWD='$root_password';mysql -u root -e "show databases;"'
 echo "***************************datanodes inited***************************"
