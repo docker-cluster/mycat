@@ -3,6 +3,17 @@
 <mycat:schema xmlns:mycat="http://io.mycat/">
         <schema name="{{ SCHEMANAME }}" checkSQLschema="false" sqlMaxLimit="100">
                 <table name="test" dataNode="dn1,dn2,dn3" rule="mod-long" />
+                <table name="tb_content" dataNode="dn1,dn2,dn3" rule="mod-long" />
+		<table name="tb_content_category" dataNode="dn1,dn2,dn3" rule="mod-long"/>
+		<table name="tb_item" dataNode="dn1,dn2,dn3" rule="mod-long" />
+		<table name="tb_item_cat" dataNode="dn1,dn2,dn3" rule="mod-long" />
+		<table name="tb_item_desc" dataNode="dn1,dn2,dn3" rule="desc-mod-long"  />
+		<table name="tb_item_param" dataNode="dn1,dn2,dn3" rule="mod-long"  />
+		<table name="tb_item_param_item" dataNode="dn1,dn2,dn3" rule="mod-long" />
+		<table name="tb_order" dataNode="dn1,dn2,dn3" rule="order-mod-long" />
+		<table name="tb_order_item" dataNode="dn1,dn2,dn3" rule="mod-long" />
+		<table name="tb_order_shipping" dataNode="dn1,dn2,dn3" rule="order-mod-long" />
+		<table name="tb_user" dataNode="dn1,dn2,dn3" rule="mod-long" />
         </schema>
         <dataNode name="dn1" dataHost="myhost" database="db1" />
         <dataNode name="dn2" dataHost="myhost" database="db2" />
